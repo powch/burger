@@ -4,10 +4,10 @@ const burger = {
     all: (cb) => {
         orm.selectAll('burgers', res => cb(res));
     },
-    create: () => {
-
+    create: (cols, vals, cb) => {
+        orm.insertOne('burgers', cols, vals, res => cb(res));
     },
-    eat: () => {
-
+    eat: (objColVals, condition, cb) => {
+        orm.updateOne('burgers', objColVals, condition, res => cb(res));
     }
 }
