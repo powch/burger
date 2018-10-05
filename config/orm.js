@@ -1,4 +1,4 @@
-const connection = require('./connection');
+const connection = require('./connection.js');
 
 
 function objToSql(ob) {
@@ -26,7 +26,7 @@ const orm = {
         });
     },
     insertOne: (table, cols, vals, cb) => {
-        const queryStr = `INSERT INTO ${table} (${cols} VALUES (${vals}))`;
+        const queryStr = `INSERT INTO ${table} (${cols}) VALUES ('${vals[0]}', ${vals[1]})`;
         connection.query(queryStr, (err, res) => {
             if(err) console.log(err);
             cb(res);

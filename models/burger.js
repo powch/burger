@@ -1,4 +1,4 @@
-const orm = require('../config/orm');
+const orm = require('../config/orm.js');
 
 const burger = {
     all: (cb) => {
@@ -11,3 +11,5 @@ const burger = {
         orm.updateOne('burgers', objColVals, condition, res => cb(res));
     }
 }
+
+module.exports = burger;
